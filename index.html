@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azrah Parker | Retro Portfolio</title>
+  <meta name="description" content="Portfolio of Azrah Parker - Computer Science Student, Cybersecurity Enthusiast, and Builder. Retro handheld-console pixel art aesthetic.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="crt-active">
+  <!-- CRT Screen Effect Layer -->
+  <div class="crt-overlay"></div>
+  <div class="crt-bezel"></div>
+
+  <!-- Top Status Bar Chrome -->
+  <header class="status-bar">
+    <div class="status-left">
+      <span class="pixel-tag xp-badge">XP: SEC/DEV</span>
+      <span class="pixel-tag lvl-badge">LEVEL 03</span>
+    </div>
+    <div class="status-center marquee-status">
+      <span class="marquee-text">AZRAH PARKER // CS STUDENT @ UWC // CYBERSECURITY // BUILDER</span>
+    </div>
+    <div class="status-right">
+      <div class="player-label">P1: AZRAH</div>
+      <div class="health-bar-container" title="Player Health">
+        <div class="heart-icon">
+          <svg viewBox="0 0 8 8" shape-rendering="crispEdges" width="16" height="16">
+            <path d="M1,2h2v1h-2z M5,2h2v1h-2z M0,3h8v2h-8z M1,5h6v1h-6z M2,6h4v1h-4z M3,7h2v1h-2z" fill="#ff3fa4" />
+          </svg>
+        </div>
+        <div class="health-progress-bg">
+          <div class="health-progress-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sound and FX Toggles -->
+  <div class="fx-panel">
+    <button id="sound-toggle" class="pixel-btn btn-sm" title="Toggle Sound FX">
+      <span class="icon">🔊</span> SOUND ON
+    </button>
+    <button id="crt-toggle" class="pixel-btn btn-sm" title="Toggle CRT Scanline Overlay">
+      <span class="icon">📺</span> CRT ON
+    </button>
+  </div>
+
+  <!-- Main Scroll Container -->
+  <main class="game-container">
+    
+    <!-- 1. START SCREEN (Hero) -->
+    <section id="hero" class="hero-section">
+      <div class="starfield-container">
+        <canvas id="starfield"></canvas>
+      </div>
+      
+      <!-- Pixel Clouds and Moon -->
+      <div class="pixel-clouds">
+        <div class="cloud-1 pixel-cloud"></div>
+        <div class="cloud-2 pixel-cloud"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="game-logo-box">
+          <h1 class="game-title glitch-text" data-text="AZRAH PARKER">AZRAH PARKER</h1>
+          <div class="game-subtitle">PORTFOLIO v3.0</div>
+        </div>
+
+        <div class="hero-sprite-area">
+          <!-- Animated Pixel Character -->
+          <div class="pixel-character" id="hero-character">
+            <!-- Drawn dynamically with CSS/SVG -->
+            <svg viewBox="0 0 16 20" shape-rendering="crispEdges" width="128" height="160">
+              <!-- Skin/Face -->
+              <rect x="5" y="4" width="6" height="6" fill="#e0a96d" />
+              <!-- Hair (Long dark brown hair with braid beads) -->
+              <rect x="3" y="2" width="10" height="2" fill="#3b2314" />
+              <rect x="2" y="4" width="3" height="12" fill="#3b2314" />
+              <rect x="11" y="4" width="3" height="12" fill="#3b2314" />
+              <!-- Hair beads/braid highlights (pale yellow gold) -->
+              <rect x="3" y="6" width="1" height="1" fill="#baff5e" />
+              <rect x="3" y="10" width="1" height="1" fill="#ff3fa4" />
+              <rect x="12" y="8" width="1" height="1" fill="#baff5e" />
+              <!-- Eyes -->
+              <rect x="6" y="6" width="1" height="1" fill="#000" />
+              <rect x="9" y="6" width="1" height="1" fill="#000" />
+              <!-- Smile -->
+              <rect x="7" y="8" width="2" height="1" fill="#ff3fa4" />
+              <!-- Torso / White shirt (matching photo) -->
+              <rect x="4" y="10" width="8" height="6" fill="#fcfcfc" />
+              <rect x="5" y="10" width="6" height="1" fill="#e0a96d" />
+              <!-- Arms -->
+              <rect x="3" y="11" width="1" height="4" fill="#fcfcfc" />
+              <rect x="12" y="11" width="1" height="4" fill="#fcfcfc" />
+              <rect x="3" y="15" width="1" height="1" fill="#e0a96d" />
+              <rect x="12" y="15" width="1" height="1" fill="#e0a96d" />
+              <!-- Legs / Pants -->
+              <rect x="5" y="16" width="2" height="3" fill="#222" />
+              <rect x="9" y="16" width="2" height="3" fill="#222" />
+              <!-- Shoes (neon pink) -->
+              <rect x="4" y="19" width="3" height="1" fill="#ff3fa4" />
+              <rect x="9" y="19" width="3" height="1" fill="#ff3fa4" />
+            </svg>
+          </div>
+          
+          <div class="pixel-pet" id="hero-pet">
+            <!-- Small pixel cat companion -->
+            <svg viewBox="0 0 12 10" shape-rendering="crispEdges" width="48" height="40">
+              <rect x="2" y="6" width="8" height="4" fill="#fcfcfc" />
+              <rect x="7" y="2" width="4" height="4" fill="#fcfcfc" />
+              <!-- Ears -->
+              <rect x="7" y="0" width="1" height="2" fill="#fcfcfc" />
+              <rect x="10" y="0" width="1" height="2" fill="#fcfcfc" />
+              <!-- Tail -->
+              <rect x="0" y="4" width="2" height="3" fill="#fcfcfc" />
+              <!-- Eyes -->
+              <rect x="8" y="3" width="1" height="1" fill="#ff3fa4" />
+              <!-- Feet -->
+              <rect x="3" y="9" width="2" height="1" fill="#baff5e" />
+              <rect x="8" y="9" width="2" height="1" fill="#baff5e" />
+            </svg>
+          </div>
+        </div>
+
+        <button id="press-start-btn" class="pixel-btn start-btn blink-fast">
+          PRESS START
+        </button>
+      </div>
+
+      <!-- Scenery Border -->
+      <div class="ground-scenery">
+        <div class="pixel-grass"></div>
+      </div>
+    </section>
+
+    <!-- STICKY NAVIGATION MARQUEE -->
+    <nav class="game-nav-bar" id="game-nav">
+      <div class="marquee-nav-container">
+        <a href="#about" class="nav-item">
+          <span class="nav-star">★</span> ABOUT ME
+        </a>
+        <a href="#missions" class="nav-item">
+          <span class="nav-star">★</span> MISSIONS
+        </a>
+        <a href="#sidequests" class="nav-item">
+          <span class="nav-star">★</span> SIDE QUESTS
+        </a>
+        <a href="#contact" class="nav-item">
+          <span class="nav-star">★</span> CONTACT
+        </a>
+        <!-- Repeat for continuous scrolling if screen is ultra wide, handled in styling -->
+      </div>
+    </nav>
+
+    <!-- 2. ABOUT ME / PLAYER CARD (Nintendo DS Mockup & Stats) -->
+    <section id="about" class="game-section">
+      <div class="section-banner">
+        <h2 class="section-title">LEVEL 01</h2>
+        <p class="section-subtitle">Meet the Player</p>
+      </div>
+
+      <div class="about-grid">
+        <!-- DS Handheld Shell (Left side on wide screens) -->
+        <div class="ds-console-container">
+          <div class="ds-console">
+            <!-- DS Top Screen -->
+            <div class="ds-screen top-screen">
+              <div class="ds-screen-inner">
+                <div class="photo-wrapper">
+                  <!-- Canvas for retro pixel filter, fallback image inside -->
+                  <canvas id="profile-canvas" width="180" height="200" class="pixelated-canvas"></canvas>
+                  <img id="profile-img-src" src="assets/azrah.jpg" alt="Azrah Parker" style="display:none;">
+                </div>
+                <div class="photo-controls">
+                  <button id="filter-toggle" class="pixel-btn btn-sm">PIXEL FILTER: ON</button>
+                </div>
+              </div>
+            </div>
+            <!-- DS Hinge -->
+            <div class="ds-hinge">
+              <span class="hinge-light"></span>
+            </div>
+            <!-- DS Bottom Screen -->
+            <div class="ds-screen bottom-screen">
+              <div class="ds-screen-inner">
+                <div class="ds-menu">
+                  <div class="menu-header">SELECT STAT:</div>
+                  <button class="menu-item active" data-target="stat-profile">📂 CHARACTER.DAT</button>
+                  <button class="menu-item" data-target="stat-training">🛡️ TRAINING_LOG.LOG</button>
+                  <button class="menu-item" data-target="stat-skills">⚔️ SKILLS_MASTERY.INI</button>
+                  <button class="menu-item" data-target="stat-tools">🔧 TOOLS_LOADOUT.CFG</button>
+                </div>
+                <!-- Mini screen controls / buttons below -->
+                <div class="ds-controls">
+                  <div class="dpad">
+                    <div class="dpad-btn up"></div>
+                    <div class="dpad-btn right"></div>
+                    <div class="dpad-btn down"></div>
+                    <div class="dpad-btn left"></div>
+                  </div>
+                  <div class="abxy">
+                    <div class="action-btn x-btn">X</div>
+                    <div class="action-btn a-btn">A</div>
+                    <div class="action-btn b-btn">B</div>
+                    <div class="action-btn y-btn">Y</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Windows (Right side/displays depending on console state) -->
+        <div class="panels-container">
+          
+          <!-- Character Bio -->
+          <div id="stat-profile" class="pixel-window stat-panel active">
+            <div class="window-header">
+              <span class="window-dot"></span>
+              <span class="window-title">CHARACTER PROFILE</span>
+            </div>
+            <div class="window-body">
+              <div class="player-card">
+                <div class="player-stat"><span class="stat-label">NAME:</span> Azrah Parker</div>
+                <div class="player-stat"><span class="stat-label">CLASS:</span> Developer / Security</div>
+                <div class="player-stat"><span class="stat-label">SUBCLASS:</span> Third-Year Computer Science</div>
+                <div class="player-stat"><span class="stat-label">LOCATION:</span> University of the Western Cape</div>
+                <div class="player-stat"><span class="stat-label">HP:</span> 100 / 100</div>
+                <div class="player-stat"><span class="stat-label">MP:</span> 99 / 99</div>
+              </div>
+              <hr class="pixel-hr">
+              <p class="panel-desc">
+                Third-year Computer Science student at the University of the Western Cape with a deep passion for software engineering, cybersecurity, and hardware projects. Adept at building clean applications, performing penetration testing, and tinkering with customized electronics.
+              </p>
+            </div>
+          </div>
+
+          <!-- Training Log -->
+          <div id="stat-training" class="pixel-window stat-panel">
+            <div class="window-header">
+              <span class="window-dot"></span>
+              <span class="window-title">TRAINING LOG (EDUCATION)</span>
+            </div>
+            <div class="window-body">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-meta">2024 - PRESENT</div>
+                  <div class="timeline-title">B.Sc. in Computer Science</div>
+                  <div class="timeline-loc">University of the Western Cape</div>
+                  <p class="timeline-text">Currently in my final (3rd) year, focusing on software architecture, high-performance computing, databases, and advanced algorithms.</p>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-meta">HIGH SCHOOL</div>
+                  <div class="timeline-title">IGCSE, AS & A Levels</div>
+                  <div class="timeline-loc">International School of Cape Town</div>
+                  <p class="timeline-text">Rigorous Cambridge syllabus. Developed foundations in maths, analytics, and writing.</p>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-meta">PREPARATORY</div>
+                  <div class="timeline-title">Preparatory Schooling</div>
+                  <div class="timeline-loc">St George's Grammar School</div>
+                  <p class="timeline-text">Early education focusing on core academic and creative fundamentals.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Mastery -->
+          <div id="stat-skills" class="pixel-window stat-panel">
+            <div class="window-header">
+              <span class="window-dot"></span>
+              <span class="window-title">SKILLS MASTERY</span>
+            </div>
+            <div class="window-body">
+              <ul class="skills-list">
+                <li>
+                  <span class="skill-icon">🛡️</span>
+                  <div class="skill-info">
+                    <span class="skill-name">Cybersecurity & CTFs</span>
+                    <span class="skill-desc">Experienced in Capture The Flag challenges, network auditing, and security protocols.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="skill-icon">🌐</span>
+                  <div class="skill-info">
+                    <span class="skill-name">Web Development</span>
+                    <span class="skill-desc">Building responsive frontend interfaces and secure backend API architectures.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="skill-icon">⚡</span>
+                  <div class="skill-info">
+                    <span class="skill-name">High Performance Computing (HPC)</span>
+                    <span class="skill-desc">Familiar with parallelized processing, clusters, and low-latency code.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="skill-icon">🧠</span>
+                  <div class="skill-info">
+                    <span class="skill-name">Problem Solving</span>
+                    <span class="skill-desc">Translating complex logic puzzles into clean, executable code structures.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="skill-icon">💳</span>
+                  <div class="skill-info">
+                    <span class="skill-name">Fintech & Payments</span>
+                    <span class="skill-desc">Integration of Open Payments protocols and digital wallet systems.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="skill-icon">🛠️</span>
+                  <div class="skill-info">
+                    <span class="skill-name">Hardware Tinkering</span>
+                    <span class="skill-desc">Designing, soldering, and configuring custom micro-controllers and SBC cyberdecks.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tools Mastery -->
+          <div id="stat-tools" class="pixel-window stat-panel">
+            <div class="window-header">
+              <span class="window-dot"></span>
+              <span class="window-title">EQUIPPED LOADOUT (TOOLS)</span>
+            </div>
+            <div class="window-body">
+              <div class="tools-grid">
+                <!-- Figma -->
+                <div class="tool-card" title="Figma">
+                  <div class="tool-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" shape-rendering="crispEdges">
+                      <!-- Pixel art Figma style logo -->
+                      <rect x="6" y="2" width="6" height="6" fill="#F24E1E"/>
+                      <rect x="12" y="2" width="6" height="6" fill="#FF7262"/>
+                      <rect x="6" y="8" width="6" height="6" fill="#A259FF"/>
+                      <rect x="12" y="8" width="6" height="6" fill="#1ABC9C"/>
+                      <rect x="6" y="14" width="6" height="6" fill="#0ACF83"/>
+                      <circle cx="9" cy="17" r="3" fill="#0ACF83"/>
+                    </svg>
+                  </div>
+                  <span class="tool-name">Figma</span>
+                </div>
+                <!-- Python -->
+                <div class="tool-card" title="Python">
+                  <div class="tool-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <!-- Simple pixelated python shape -->
+                      <path d="M12 2v10m0 0H2m10 0h10M12 12v10" stroke="#baff5e" stroke-linecap="square"/>
+                      <circle cx="12" cy="7" r="2" fill="#ff3fa4"/>
+                      <circle cx="12" cy="17" r="2" fill="#ff3fa4"/>
+                    </svg>
+                  </div>
+                  <span class="tool-name">Python</span>
+                </div>
+                <!-- VS Code -->
+                <div class="tool-card" title="VS Code">
+                  <div class="tool-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" shape-rendering="crispEdges">
+                      <!-- Retro VS Code style -->
+                      <rect x="4" y="4" width="16" height="16" fill="none" stroke="#23A9F2" stroke-width="2"/>
+                      <path d="M6 6 l12 12 M18 6 l-12 12" stroke="#ff3fa4" stroke-width="2"/>
+                    </svg>
+                  </div>
+                  <span class="tool-name">VS Code</span>
+                </div>
+                <!-- Git -->
+                <div class="tool-card" title="Git">
+                  <div class="tool-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" shape-rendering="crispEdges">
+                      <rect x="11" y="3" width="2" height="18" fill="#F05032" />
+                      <rect x="3" y="11" width="18" height="2" fill="#F05032" />
+                      <circle cx="12" cy="12" r="3" fill="#baff5e" />
+                    </svg>
+                  </div>
+                  <span class="tool-name">Git</span>
+                </div>
+                <!-- Bash/Linux -->
+                <div class="tool-card" title="Linux / Terminal">
+                  <div class="tool-icon">
+                    <span class="text-icon">&gt;_</span>
+                  </div>
+                  <span class="tool-name">Terminal</span>
+                </div>
+                <!-- JavaScript -->
+                <div class="tool-card" title="JavaScript">
+                  <div class="tool-icon">
+                    <span class="text-icon text-yellow">JS</span>
+                  </div>
+                  <span class="tool-name">JS (ES6+)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MISSIONS (Projects section) -->
+    <section id="missions" class="game-section">
+      <div class="section-banner">
+        <h2 class="section-title">LEVEL 02</h2>
+        <p class="section-subtitle">Active Missions &amp; Quests</p>
+      </div>
+
+      <div class="missions-container">
+        <!-- Mission 1: STRIDE -->
+        <div class="pixel-window quest-card complete">
+          <div class="window-header">
+            <span class="quest-status status-complete">COMPLETE</span>
+            <span class="window-title">MISSION 01: STRIDE</span>
+          </div>
+          <div class="window-body">
+            <div class="quest-meta">
+              <div class="quest-reward">🏆 REWARD: 3rd Place - UCT Financial Hub x Interledger Hackathon</div>
+            </div>
+            <h3 class="quest-name">STRIDE Remittances</h3>
+            <p class="quest-desc">
+              A bespoke, built-from-scratch payments and financial documentation platform. Designed for cash-based workers to track, log, and verify transactions, allowing them to construct an official financial footprint to unlock loans, institutional credit, and life insurance.
+            </p>
+            <div class="quest-tech">
+              <span class="tech-tag">Interledger</span>
+              <span class="tech-tag">Open Payments API</span>
+              <span class="tech-tag">Fintech</span>
+              <span class="tech-tag">Web Security</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission 2: Cybersecurity Challenge -->
+        <div class="pixel-window quest-card recurring">
+          <div class="window-header">
+            <span class="quest-status status-recurring">RECURRING</span>
+            <span class="window-title">MISSION 02: CYBERSECURITY CTF</span>
+          </div>
+          <div class="window-body">
+            <div class="quest-meta">
+              <div class="quest-reward">⚡ OBJECTIVE: Penetrate, Secure, Defend</div>
+            </div>
+            <h3 class="quest-name">SUNREN Cybersecurity Challenge</h3>
+            <p class="quest-desc">
+              Competed successfully for 2 consecutive years in national-level cybersecurity CTFs. Actively preparing for the upcoming season. Focus areas include reverse engineering, cryptography, web exploitation, and privilege escalation.
+            </p>
+            <div class="quest-tech">
+              <span class="tech-tag">CTF</span>
+              <span class="tech-tag">Penetration Testing</span>
+              <span class="tech-tag">Cryptography</span>
+              <span class="tech-tag">Wireshark</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission 3: Cyberdeck Build -->
+        <div class="pixel-window quest-card in-progress">
+          <div class="window-header">
+            <span class="quest-status status-in-progress">IN PROGRESS</span>
+            <span class="window-title">MISSION 03: HARDWARE BUILD</span>
+          </div>
+          <div class="window-body">
+            <div class="quest-meta">
+              <div class="quest-reward">🛠️ WORKSTATION: Soldering &amp; SBC Configuration</div>
+            </div>
+            <h3 class="quest-name">Custom SBC Cyberdeck</h3>
+            <p class="quest-desc">
+              Designing and assembling a portable, ruggedized custom cyberdeck computer for field diagnostics and security assessments. Learning hardware integration, microcontrollers, custom power management circuits, and mechanical configuration.
+            </p>
+            <div class="quest-progress">
+              <div class="progress-label">BUILD PROGRESS: 65%</div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: 65%;"></div>
+              </div>
+            </div>
+            <div class="quest-tech">
+              <span class="tech-tag">Single Board Computers</span>
+              <span class="tech-tag">Hardware Tinkering</span>
+              <span class="tech-tag">Linux</span>
+              <span class="tech-tag">GPIO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SIDE QUESTS (Hobbies & Business) -->
+    <section id="sidequests" class="game-section">
+      <div class="section-banner">
+        <h2 class="section-title">LEVEL 03</h2>
+        <p class="section-subtitle">Side Quests &amp; Leisure</p>
+      </div>
+
+      <div class="sidequests-layout">
+        
+        <!-- Hobbies grid -->
+        <div class="hobbies-container">
+          <!-- Painting -->
+          <div class="pixel-window hobby-card">
+            <div class="window-header">
+              <span class="window-title">HOBBY: PAINTING</span>
+            </div>
+            <div class="window-body text-center">
+              <div class="hobby-icon">
+                <svg viewBox="0 0 16 16" shape-rendering="crispEdges" width="48" height="48">
+                  <!-- Palette and Brush -->
+                  <rect x="2" y="4" width="10" height="9" fill="#8d5524" />
+                  <rect x="4" y="3" width="6" height="1" fill="#8d5524" />
+                  <!-- Paint colors -->
+                  <rect x="4" y="6" width="2" height="2" fill="#ff3fa4" />
+                  <rect x="7" y="6" width="2" height="2" fill="#baff5e" />
+                  <rect x="4" y="9" width="2" height="2" fill="#23A9F2" />
+                  <rect x="7" y="9" width="2" height="2" fill="#e0a96d" />
+                  <!-- Paint brush -->
+                  <line x1="11" y1="2" x2="14" y2="13" stroke="#fff" stroke-width="1.5" />
+                  <rect x="13" y="1" width="2" height="2" fill="#ff3fa4" />
+                </svg>
+              </div>
+              <h4 class="hobby-name">Fine Arts &amp; Painting</h4>
+              <p class="hobby-desc">Exploring canvas work, acrylics, and color compositions as a creative escape.</p>
+            </div>
+          </div>
+
+          <!-- Yoga -->
+          <div class="pixel-window hobby-card">
+            <div class="window-header">
+              <span class="window-title">HOBBY: YOGA</span>
+            </div>
+            <div class="window-body text-center">
+              <div class="hobby-icon">
+                <svg viewBox="0 0 16 16" shape-rendering="crispEdges" width="48" height="48">
+                  <!-- Meditating silhouette -->
+                  <circle cx="8" cy="4" r="2" fill="#baff5e" />
+                  <rect x="6" y="7" width="4" height="5" fill="#fcfcfc" />
+                  <rect x="4" y="9" width="2" height="2" fill="#ff3fa4" />
+                  <rect x="10" y="9" width="2" height="2" fill="#ff3fa4" />
+                  <rect x="5" y="12" width="6" height="2" fill="#222" />
+                </svg>
+              </div>
+              <h4 class="hobby-name">Yoga &amp; Mindfulness</h4>
+              <p class="hobby-desc">Cultivating focus, strength, flexibility, and physical alignment daily.</p>
+            </div>
+          </div>
+
+          <!-- Sewing -->
+          <div class="pixel-window hobby-card">
+            <div class="window-header">
+              <span class="window-title">HOBBY: SEWING</span>
+            </div>
+            <div class="window-body text-center">
+              <div class="hobby-icon">
+                <svg viewBox="0 0 16 16" shape-rendering="crispEdges" width="48" height="48">
+                  <!-- Sewing needle & thread spool -->
+                  <rect x="4" y="3" width="8" height="10" fill="#e0a96d" />
+                  <rect x="5" y="2" width="6" height="1" fill="#fff" />
+                  <rect x="5" y="13" width="6" height="1" fill="#fff" />
+                  <rect x="6" y="5" width="4" height="6" fill="#ff3fa4" />
+                  <!-- Needle -->
+                  <line x1="2" y1="1" x2="2" y2="15" stroke="#fcfcfc" stroke-width="1" />
+                  <circle cx="2" cy="3" r="0.5" fill="#000" />
+                </svg>
+              </div>
+              <h4 class="hobby-name">Sewing &amp; Tailoring</h4>
+              <p class="hobby-desc">Crafting textiles, alterations, and structural fashion patterns by hand.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real World Hustle Panel -->
+        <div class="pixel-window real-world-hustle">
+          <div class="window-header">
+            <span class="window-title">💰 REAL WORLD SIDE HUSTLE</span>
+          </div>
+          <div class="window-body">
+            <div class="hustle-badge">QUEST STATUS: EXPANDING</div>
+            <h3 class="hustle-title">Student Housing Enterprise</h3>
+            <p class="hustle-desc">
+              Co-owning and managing a physical real estate asset with a family member, converted successfully into functional student accommodation. Currently acquisitioning and drafting plans for a second student residential property in the Cape area.
+            </p>
+            <div class="hustle-stats">
+              <div class="hustle-stat-row">
+                <span>PROPERTY 1 (OPERATIONAL):</span>
+                <span class="text-green">ACTIVE (100% Occupancy)</span>
+              </div>
+              <div class="hustle-stat-row">
+                <span>PROPERTY 2 (ACQUISITION):</span>
+                <span class="text-pink">IN PROGRESS (60%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. INTERACTIVE EXTRA WIDGETS SECTION (Treasure Chest & Save Point) -->
+    <section class="interactive-widgets-section">
+      <div class="widgets-grid">
+        
+        <!-- Treasure Chest Widget -->
+        <div class="pixel-window widget-card">
+          <div class="window-header">
+            <span class="window-title">LOOT CHEST</span>
+          </div>
+          <div class="window-body text-center">
+            <div class="chest-container" id="cv-chest">
+              <!-- Closed Chest SVG -->
+              <svg class="chest-svg closed" viewBox="0 0 20 20" shape-rendering="crispEdges" width="90" height="90">
+                <rect x="2" y="4" width="16" height="12" fill="#8d5524" />
+                <rect x="2" y="3" width="16" height="1" fill="#5c3a21" />
+                <rect x="2" y="9" width="16" height="2" fill="#ff3fa4" /> <!-- Neon lockband -->
+                <rect x="9" y="8" width="2" height="4" fill="#baff5e" /> <!-- Lock -->
+                <!-- Trim/Borders -->
+                <rect x="1" y="4" width="1" height="12" fill="#222" />
+                <rect x="18" y="4" width="1" height="12" fill="#222" />
+                <rect x="2" y="16" width="16" height="1" fill="#222" />
+                <rect x="2" y="2" width="16" height="1" fill="#222" />
+              </svg>
+              <!-- Open Chest SVG -->
+              <svg class="chest-svg open hidden" viewBox="0 0 20 20" shape-rendering="crispEdges" width="90" height="90">
+                <rect x="2" y="9" width="16" height="7" fill="#8d5524" />
+                <rect x="2" y="2" width="16" height="4" fill="#8d5524" />
+                <rect x="3" y="6" width="14" height="3" fill="#baff5e" /> <!-- Gold glow/scroll -->
+                <rect x="1" y="9" width="1" height="7" fill="#222" />
+                <rect x="18" y="9" width="1" height="7" fill="#222" />
+                <rect x="2" y="16" width="16" height="1" fill="#222" />
+                <!-- Keylock popped -->
+                <rect x="9" y="10" width="2" height="2" fill="#222" />
+              </svg>
+            </div>
+            <div class="widget-action-area">
+              <p class="widget-desc">Click chest to claim Azrah's CV scroll!</p>
+              <a href="#" id="download-cv-btn" class="pixel-btn btn-sm hidden" download="Azrah_Parker_CV.pdf">DOWNLOAD CV</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Save Point Widget -->
+        <div class="pixel-window widget-card">
+          <div class="window-header">
+            <span class="window-title">SAVE POINT</span>
+          </div>
+          <div class="window-body text-center">
+            <div class="save-icon-container" id="save-point">
+              <!-- Floating Save Star/Disk -->
+              <svg class="save-star-svg" viewBox="0 0 16 16" shape-rendering="crispEdges" width="80" height="80">
+                <path d="M7,1h2v2h-2z M5,3h2v2h-2z M9,3h2v2h-2z M3,5h2v2h-2z M11,5h2v2h-2z M1,7h2v2h-2z M13,7h2v2h-2z M3,9h2v2h-2z M11,9h2v2h-2z M5,11h2v2h-2z M9,11h2v2h-2z M7,13h2v2h-2z" fill="#baff5e" />
+                <circle cx="8" cy="8" r="2" fill="#ff3fa4" />
+              </svg>
+            </div>
+            <div class="widget-action-area">
+              <p class="widget-desc">Step into the light to save your progress.</p>
+              <button id="save-btn" class="pixel-btn btn-sm">RECORD LOG</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. CONTACT SECTION (Interactive Envelope & Links) -->
+    <section id="contact" class="game-section">
+      <div class="section-banner">
+        <h2 class="section-title">LEVEL 04</h2>
+        <p class="section-subtitle">Establish Connection</p>
+      </div>
+
+      <div class="contact-card-container">
+        <!-- Interactive Envelope -->
+        <div class="envelope-wrapper" id="envelope-trigger">
+          <div class="pixel-envelope" id="envelope">
+            <!-- Back panel -->
+            <div class="envelope-back"></div>
+            <!-- Letter content inside -->
+            <div class="envelope-letter" id="envelope-letter">
+              <div class="letter-text">
+                <h3>AZRAH PARKER</h3>
+                <p class="letter-email">azparker0305@gmail.com</p>
+                <p class="letter-note">Click social buttons below to open portals.</p>
+              </div>
+            </div>
+            <!-- Front flap -->
+            <div class="envelope-front">
+              <div class="envelope-flap" id="envelope-flap"></div>
+            </div>
+          </div>
+        </div>
+        <p class="envelope-hint">Click the envelope to decrypt contact portals!</p>
+        
+        <!-- Social links row -->
+        <div class="social-links-row hidden" id="social-row">
+          <!-- Email Mailto -->
+          <a href="mailto:azparker0305@gmail.com" class="social-btn pixel-btn" title="Send Email">
+            <svg viewBox="0 0 16 16" width="24" height="24" shape-rendering="crispEdges">
+              <rect x="1" y="3" width="14" height="10" fill="#fff" stroke="#000" stroke-width="1"/>
+              <!-- Letter fold lines -->
+              <path d="M1,3 l7,5 l7,-5" fill="none" stroke="#ff3fa4" stroke-width="1.5"/>
+            </svg>
+          </a>
+          <!-- GitHub -->
+          <a href="https://github.com/azrahp" target="_blank" rel="noopener noreferrer" class="social-btn pixel-btn" title="GitHub Portal">
+            <svg viewBox="0 0 16 16" width="24" height="24" shape-rendering="crispEdges">
+              <!-- Octocat silhouette -->
+              <rect x="4" y="3" width="8" height="10" fill="#baff5e" />
+              <rect x="3" y="5" width="10" height="6" fill="#baff5e" />
+              <!-- Ears -->
+              <rect x="4" y="1" width="2" height="2" fill="#baff5e" />
+              <rect x="10" y="1" width="2" height="2" fill="#baff5e" />
+              <!-- Eyes -->
+              <rect x="5" y="6" width="2" height="2" fill="#000" />
+              <rect x="9" y="6" width="2" height="2" fill="#000" />
+              <rect x="7" y="11" width="2" height="3" fill="#baff5e" />
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/in/azrah-parker-36741b398" target="_blank" rel="noopener noreferrer" class="social-btn pixel-btn" title="LinkedIn Network">
+            <svg viewBox="0 0 16 16" width="24" height="24" shape-rendering="crispEdges">
+              <rect x="2" y="2" width="12" height="12" fill="#0077B5"/>
+              <rect x="4" y="5" width="2" height="7" fill="#fff"/>
+              <rect x="4" y="3" width="2" height="1.5" fill="#fff"/>
+              <path d="M8 5v7M8 5c0-1 1-2 2-2s2 1 2 2v7" stroke="#fff" stroke-width="2" fill="none"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/azrah_parker" target="_blank" rel="noopener noreferrer" class="social-btn pixel-btn" title="Instagram Feed">
+            <svg viewBox="0 0 16 16" width="24" height="24" shape-rendering="crispEdges">
+              <rect x="2" y="2" width="12" height="12" rx="3" fill="#ff3fa4" stroke="#fff" stroke-width="1.5"/>
+              <circle cx="8" cy="8" r="3" fill="none" stroke="#fff" stroke-width="1.5"/>
+              <circle cx="11.5" cy="4.5" r="0.75" fill="#baff5e"/>
+            </svg>
+          </a>
+          <!-- TikTok -->
+          <a href="https://tiktok.com/@azrahparkerxx" target="_blank" rel="noopener noreferrer" class="social-btn pixel-btn" title="TikTok Profile">
+            <svg viewBox="0 0 16 16" width="24" height="24" shape-rendering="crispEdges">
+              <rect x="2" y="2" width="12" height="12" fill="#010101"/>
+              <!-- Note symbol with cyan/red overlay -->
+              <path d="M9 3v7a2.5 2.5 0 1 1-2.5-2.5H7.5V3h1.5z" stroke="#baff5e" stroke-width="1.5" fill="none"/>
+              <circle cx="9" cy="4" r="1" fill="#ff3fa4"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+  </main>
+
+  <!-- 7. FOOTER -->
+  <footer class="game-footer">
+    <div class="footer-content">
+      <div class="game-over-text">GAME OVER</div>
+      <div class="game-over-sub">...OR IS IT?</div>
+      <p class="copyright">&copy; 2026 AZRAH PARKER. ALL RIGHTS RESERVED. PLAYER 01 CONSOLE V3.0.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
